@@ -95,9 +95,11 @@ export default function CartPage() {
 
   useEffect(() => {
     if (typeof window === "undefined") {
+      console.log("pasa por undefined");
       return;
     }
     if (window?.location.href.includes("success")) {
+      console.log("pasa por Success");
       setIsSuccess(true);
       clearCart();
     }
