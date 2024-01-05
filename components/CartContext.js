@@ -21,6 +21,8 @@ export function CartContextProvider({ children }) {
   function removeProduct(productId) {
     setCartProducts((prev) => {
       const pos = prev.indexOf(productId);
+      console.log(prev.length - 1);
+      if (prev.length - 1 < 1) clearCart();
       if (pos !== -1) {
         return prev.filter((value, index) => index !== pos);
       }
@@ -28,7 +30,7 @@ export function CartContextProvider({ children }) {
     });
   }
   function clearCart() {
-    // localStorage.removeItem("cart");
+    localStorage.removeItem("cart");
     setCartProducts([]);
   }
   return (
